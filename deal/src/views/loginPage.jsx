@@ -1,14 +1,14 @@
 import React from "react";
+import Lottie from "lottie-react";
+import animationData from "../assets/Animation - 1725973319141.json";
 
 function Login() {
   return (
     <div className="min-h-screen flex justify-center items-center relative bg-gradient-to-b from-purple-800 to-purple-900">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url('/Back.jpeg')` }}
-      ></div>
-
+      <div className="absolute inset-0 z-0">
+        <Lottie animationData={animationData} className="w-full h-full" />
+      </div>
       {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
 
