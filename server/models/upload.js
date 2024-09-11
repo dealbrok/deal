@@ -11,12 +11,37 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Upload.belongsTo(models.User, { foreignKey: 'UsersId' })
+      Upload.belongsTo(models.Room, { foreignKey: 'RoomsId' })
     }
   }
   Upload.init({
-    UserId: DataTypes.INTEGER,
-    RoomNameId: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "UsersId is required"
+        },
+        notNull: {
+          msg: "UsersId is required"
+        }
+      }
+    },
+    RoomNameId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "RoomNameId is required"
+        },
+        notNull: {
+          msg: "RoomNameId is required"
+        }
+      }
+    },
+    imageUrl: DataTypes.STRING,
+
   }, {
     sequelize,
     modelName: 'Upload',

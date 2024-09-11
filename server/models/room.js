@@ -11,10 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Room.hasMany(models.Upload, { foreignKey: "RoomsId" })
     }
   }
   Room.init({
-    roomName: DataTypes.STRING,
+    roomName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Room is required"
+        },
+        notNull: {
+          msg: "Room is required"
+        }
+      }
+    },
     token: DataTypes.STRING
   }, {
     sequelize,
