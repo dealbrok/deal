@@ -1,11 +1,16 @@
 const { compare } = require('../helper/bcrypt')
 const { User } = require('../models')
-const { signToken, verifiedToken } = require('../helper/jwt')
-const { OAuth2Client } = require('google-auth-library');
-const { where } = require('sequelize');
-
+const { signToken } = require('../helper/jwt')
 
 class userController {
+  // static async register(reg, res, next){
+  //   try {
+
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
+
   static async login(req, res, next) {
     try {
       const { username, password } = req.body
